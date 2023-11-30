@@ -9,6 +9,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { OrdineComponent } from './ordine/ordine.component';
 import { ProdottoComponent } from './prodotto/prodotto.component';
 import { UtenteComponent } from './utente/utente.component';
+import { DataService } from './data.services';
 @NgModule({
   declarations: [
     AppComponent,
@@ -19,7 +20,7 @@ import { UtenteComponent } from './utente/utente.component';
     NavbarComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, NgbModule], // this imoports are avaialble in all the application (in all the modules) and they are imported only once
-  providers: [], // this is the place where you put your services
+  providers: [DataService], // this is the place where you put your services
   bootstrap: [AppComponent],
 })
 export class AppModule { }

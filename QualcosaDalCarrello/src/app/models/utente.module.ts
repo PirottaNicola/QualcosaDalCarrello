@@ -7,6 +7,5 @@ export interface Utente {
     indirizzi: string[];
     metodiPagamento: string[];
     storicoOrdini: Ordine[];
-
 }
 
