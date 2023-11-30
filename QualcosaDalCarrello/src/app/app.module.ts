@@ -29,4 +29,6 @@ import { ContattiComponent } from './contatti/contatti.component';
   providers: [DataService], // this is the place where you put your services
   bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {
+
+}

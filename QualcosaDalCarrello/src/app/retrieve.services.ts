@@ -5,11 +5,9 @@ import { Injectable } from "@angular/core";
 })
 export class FetchData {
 
-    public recuperaDati() {
-        const data = fetch('api/prodotti')
-            .then((res) => res.json())
-            .then((json) => console.log(json));
-        console.log(data);
+    public async recuperaDati() {
+        const data = await fetch('api/products')
+            .then((res) => res.json());
         return data;
     }
 }

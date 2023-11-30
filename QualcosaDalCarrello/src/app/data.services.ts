@@ -7,7 +7,7 @@ import { InMemoryDbService } from 'angular-in-memory-web-api';
 export class DataService implements InMemoryDbService {
   constructor() { }
   createDb() {
-    return {
+    return JSON.stringify({
       products: [
         {
           id: 1,
@@ -99,7 +99,7 @@ export class DataService implements InMemoryDbService {
           storicoOrdini: []
         }
       ]
-    };
+    });
   }
 }
 //axios

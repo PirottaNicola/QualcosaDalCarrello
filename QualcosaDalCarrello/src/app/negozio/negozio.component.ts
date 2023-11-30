@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FetchData } from '../retrieve.services';
 
 @Component({
@@ -6,6 +6,10 @@ import { FetchData } from '../retrieve.services';
   templateUrl: './negozio.component.html',
   styleUrls: ['./negozio.component.css']
 })
-export class NegozioComponent {
+export class NegozioComponent implements OnInit {
   constructor(private service: FetchData) { }
+  ngOnInit(): void {
+    console.log(this.service.recuperaDati());
+  }
+
 }
