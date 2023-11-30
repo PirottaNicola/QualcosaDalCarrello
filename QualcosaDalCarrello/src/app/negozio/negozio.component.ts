@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FetchData } from '../retrieve.services';
 
 @Component({
   selector: 'app-negozio',
@@ -6,5 +7,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./negozio.component.css']
 })
 export class NegozioComponent {
-
+  constructor(private service: FetchData) { }
 }
