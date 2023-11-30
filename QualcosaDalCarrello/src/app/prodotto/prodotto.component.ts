@@ -12,4 +12,6 @@ export class ProdottoComponent {
   private prezzo:number=0;
   private nome:string="";
   private varianti:string[]=[];
+  private quantitàProdottiVenduti:number=0;
+  private numeroReclami:number=0;
 }
