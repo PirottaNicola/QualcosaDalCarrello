@@ -1,0 +1,34 @@
+<mxfile host="65bd71144e">
+    <diagram id="pIFjZj835tZ3TPQmUdJA" name="Page-1">
+        <mxGraphModel dx="957" dy="679" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="2" value="id&lt;br&gt;nome&lt;br&gt;cognome&lt;br&gt;indirizzi [ ]&lt;br&gt;metodi pagamento [ ]&lt;br&gt;storico ordini [ ]" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="90" y="230" width="170" height="210" as="geometry"/>
+                </mxCell>
+                <mxCell id="3" value="Utente" style="text;strokeColor=none;align=center;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+                    <mxGeometry x="145" y="200" width="60" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="4" value="id&lt;br&gt;url immagine&lt;br&gt;categoria&lt;br&gt;prezzo&lt;br&gt;nome&lt;br&gt;varianti [ ]" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="320" y="230" width="120" height="210" as="geometry"/>
+                </mxCell>
+                <mxCell id="5" value="Prodotto" style="text;strokeColor=none;align=center;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+                    <mxGeometry x="350" y="200" width="60" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="8" value="id&lt;br&gt;prodotti [ ]&lt;br&gt;utente&lt;br&gt;tot prezzo" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="490" y="230" width="120" height="210" as="geometry"/>
+                </mxCell>
+                <mxCell id="9" value="Carrello" style="text;strokeColor=none;align=center;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+                    <mxGeometry x="520" y="200" width="60" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="10" value="id&lt;br&gt;carrello&lt;br&gt;utente&lt;br&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="660" y="230" width="120" height="210" as="geometry"/>
+                </mxCell>
+                <mxCell id="11" value="Ordine" style="text;strokeColor=none;align=center;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+                    <mxGeometry x="690" y="200" width="60" height="30" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>
