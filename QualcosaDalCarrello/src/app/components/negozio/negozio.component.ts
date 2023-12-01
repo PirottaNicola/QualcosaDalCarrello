@@ -19,9 +19,14 @@ import { ProductService } from '../../retrieve.services';
   styleUrls: ['./negozio.component.css'],
 })
 export class NegozioComponent implements OnInit {
-  constructor(private productService: ProductService) {}
+  constructor(private productService: ProductService) { }
+  variabile: boolean = true;
   ngOnInit(): void {
     const prodotti = this.productService.getProducts();
     prodotti.subscribe((data) => console.log(data));
+  }
+  categorieSiNo(value: boolean) {
+    this.variabile = value;
+    console.log("togliCategoria");
   }
 }

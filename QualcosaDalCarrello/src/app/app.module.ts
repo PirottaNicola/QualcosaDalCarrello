@@ -16,6 +16,7 @@ import { ProdottoComponent } from './components/prodotto/prodotto.component';
 import { DataService } from './data.services';
 //import { FetchData } from './retrieve.services';
 import { CaroselloComponent } from './components/carosello/carosello.component';
+import { CategoriaComponent } from './components/categoria/categoria.component';
 import { UtenteComponent } from './components/utente/utente.component';
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { UtenteComponent } from './components/utente/utente.component';
     NegozioComponent,
     HomeComponent,
     ContattiComponent,
+    CategoriaComponent,
     CaroselloComponent,
   ],
   imports: [
