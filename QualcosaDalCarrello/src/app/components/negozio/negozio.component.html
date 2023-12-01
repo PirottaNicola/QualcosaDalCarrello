@@ -1,1 +1,8 @@
-<p>negozio works!</p>
+<div class="container">
+    <div class=" d-flex align-items-center ">
+
+        <p class="fs-1">Negozio</p>
+        <i class="bi bi-basket2-fill fs-3 p-2 d-flex align-items-center justify-content-center"></i>
+    </div>
+</div>
+<app-categoria *ngIf="variabile" (mostraCategorieValore)="categorieSiNo(false)"></app-categoria>

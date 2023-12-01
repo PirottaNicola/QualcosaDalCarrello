@@ -1,0 +1,46 @@
+<div class="container">
+    <h3 class="d-flex align-items-center justify-content-center flex-column">Scegli Categoria</h3>
+    <div class="row d-flex">
+
+        <div id="all" class="col-12  p-3 d-flex align-items-center justify-content-center flex-column"
+            (click)="redirect($event)" (click)="mostraCategorie(false)">
+            <h5 class="categoria border border-3 p-3 m-auto">Tutti i prodotti</h5>
+        </div>
+        <div id="Laptop" #prodotto
+            class="col-4 border categoria p-3 d-flex align-items-center justify-content-center flex-column"
+            (click)="redirect($event)">
+            <p>Laptop</p>
+            <i class="bi bi-laptop"></i>
+        </div>
+        <div id="Desktop" #prodotto
+            class="col-4 border categoria p-3 d-flex align-items-center justify-content-center flex-column"
+            (click)="redirect($event)">
+            <p>Desktop</p>
+            <i class="bi bi-pc-display"></i>
+        </div>
+        <div id="Tablet" #prodotto
+            class="col-4 border categoria p-3 d-flex align-items-center justify-content-center flex-column"
+            (click)="redirect($event)">
+            <p>Tablet</p>
+            <i class="bi bi-tablet"></i>
+        </div>
+        <div id="Accessories" #prodotto
+            class="col-4 border categoria p-3 d-flex align-items-center justify-content-center flex-column"
+            (click)="redirect($event)">
+            <p>Accessories</p>
+            <i class="bi bi-keyboard"></i>
+        </div>
+        <div id="Hardware" #prodotto
+            class="col-4 border categoria p-3 d-flex align-items-center justify-content-center flex-column"
+            (click)="redirect($event)">
+            <p>Hardware</p>
+            <i class="bi bi-motherboard"></i>
+        </div>
+        <div id="Software" #prodotto
+            class="col-4 border categoria p-3 d-flex align-items-center justify-content-center flex-column"
+            (click)="redirect($event)">
+            <p>Software</p>
+            <i class="bi bi-boxes"></i>
+        </div>
+    </div>
+</div>

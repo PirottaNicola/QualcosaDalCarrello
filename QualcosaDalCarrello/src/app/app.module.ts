@@ -16,6 +16,7 @@ import { ProdottoComponent } from './components/prodotto/prodotto.component';
 import { DataService } from './data.services';
 //import { FetchData } from './retrieve.services';
 import { UtenteComponent } from './components/utente/utente.component';
+import { CategoriaComponent } from './components/categoria/categoria.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,6 +28,7 @@ import { UtenteComponent } from './components/utente/utente.component';
     NegozioComponent,
     HomeComponent,
     ContattiComponent,
+    CategoriaComponent,
   ],
   imports: [
     BrowserModule,
