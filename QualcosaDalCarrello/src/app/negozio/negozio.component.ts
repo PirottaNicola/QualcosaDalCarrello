@@ -9,7 +9,7 @@ import { FetchData } from '../retrieve.services';
 export class NegozioComponent implements OnInit {
   constructor(private service: FetchData) { }
   ngOnInit(): void {
-    console.log(this.service.recuperaDati());
+    this.service.recuperaDati();
   }
 
 }

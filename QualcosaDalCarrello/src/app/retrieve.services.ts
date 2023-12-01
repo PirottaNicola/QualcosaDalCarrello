@@ -1,13 +1,21 @@
 import { Injectable } from "@angular/core";
-
+import axios from 'axios';
 @Injectable({
     providedIn: 'root'
 })
 export class FetchData {
-
     public async recuperaDati() {
-        const data = await fetch('api/products')
-            .then((res) => res.json());
-        return data;
+        axios.get('api/products')
+            .then(function (response: any) {
+                // handle success
+                console.log(response);
+            })
+            .catch(function (error: any) {
+                // handle error
+                console.log(error);
+            })
+            .finally(function () {
+                // always executed
+            });
     }
 }

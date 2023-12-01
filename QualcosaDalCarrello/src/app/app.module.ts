@@ -13,6 +13,7 @@ import { DataService } from './data.services';
 import { NegozioComponent } from './negozio/negozio.component';
 import { HomeComponent } from './home/home.component';
 import { ContattiComponent } from './contatti/contatti.component';
+import { Axios } from 'axios';
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,10 +24,10 @@ import { ContattiComponent } from './contatti/contatti.component';
     NavbarComponent,
     NegozioComponent,
     HomeComponent,
-    ContattiComponent,
+    ContattiComponent
   ],
-  imports: [BrowserModule, AppRoutingModule, NgbModule], // this imoports are avaialble in all the application (in all the modules) and they are imported only once
-  providers: [DataService], // this is the place where you put your services
+  imports: [BrowserModule, AppRoutingModule, NgbModule,], // this imoports are avaialble in all the application (in all the modules) and they are imported only once
+  providers: [DataService, Axios], // this is the place where you put your services
   bootstrap: [AppComponent],
 })
 export class AppModule {
