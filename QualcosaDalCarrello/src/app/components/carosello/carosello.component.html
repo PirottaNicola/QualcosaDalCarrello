@@ -1,0 +1,12 @@
+<ngb-carousel>
+    <ng-template ngbSlide *ngFor="let p of prodotti">
+        <div class="text-center">
+            <img style="height: 50vh; max-width: 100%;" src="../../../assets/images/{{p.urlImmagine}}"
+                alt="Random first slide" />
+        </div>
+        <div class="carousel-caption text-light" style="background-color: rgba(0, 0, 0, 0.5);">
+            <h3>{{p.nome}}</h3>
+            <p>{{p.prezzo}}€</p>
+        </div>
+    </ng-template>
+</ngb-carousel>

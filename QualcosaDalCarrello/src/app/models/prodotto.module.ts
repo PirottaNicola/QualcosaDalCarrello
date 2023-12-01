@@ -7,5 +7,4 @@ export interface Prodotto {
   varianti: string[];
   quantitàProdottiVenduti: number;
   numeroReclami: number;
-
 }

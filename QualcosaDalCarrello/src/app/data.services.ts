@@ -14,7 +14,7 @@ export class DataService implements InMemoryDbService {
       products: [
         {
           id: 1,
-          urlImmagine: '',
+          urlImmagine: 'mouse.png',
           categoria: 'Accessories',
           prezzo: 15,
           nome: 'Mouse',
@@ -24,7 +24,7 @@ export class DataService implements InMemoryDbService {
         },
         {
           id: 2,
-          urlImmagine: '',
+          urlImmagine: 'tastiera.png',
           categoria: 'Accessories',
           prezzo: 15,
           nome: 'Tastiera',
@@ -34,7 +34,7 @@ export class DataService implements InMemoryDbService {
         },
         {
           id: 3,
-          urlImmagine: '',
+          urlImmagine: 'ufficio.png',
           categoria: 'Desktop',
           prezzo: 550,
           nome: 'Desktop Computer',
@@ -44,7 +44,7 @@ export class DataService implements InMemoryDbService {
         },
         {
           id: 4,
-          urlImmagine: '',
+          urlImmagine: 'gaming.png',
           categoria: 'Desktop',
           prezzo: 950,
           nome: 'Desktop Gaming',
@@ -54,7 +54,7 @@ export class DataService implements InMemoryDbService {
         },
         {
           id: 5,
-          urlImmagine: '',
+          urlImmagine: 'silksong.png',
           categoria: 'Software',
           prezzo: 15,
           nome: 'Hollow Knigth',
@@ -64,7 +64,7 @@ export class DataService implements InMemoryDbService {
         },
         {
           id: 6,
-          urlImmagine: '',
+          urlImmagine: 'ipad.png',
           categoria: 'Tablet',
           prezzo: 499,
           nome: 'Ipad Air 3',

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { UserService } from './retrieve.services';
 
 @Component({
   selector: 'app-root',
@@ -8,6 +9,11 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'QualcosaDalCarrello';
 
-  /*     const user = this.userService.getUsers(); // da spostare in app, va chiamato solo una volta quando entri nel sito per identificare l'utente
-    user.subscribe((data) => console.log(data)); */
+  constructor(private userService: UserService) {
+    // quando viene costruita l'applicazione, viene preso dal database l'utente che la sta utilizzando (in teoria come conseguenza di un login)
+    const user = this.userService.getUsers();
+    user.subscribe((data) =>
+      console.log("accesso effettuato dall'utente: ", data)
+    );
+  }
 }
