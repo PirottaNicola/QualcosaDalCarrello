@@ -12,22 +12,16 @@ export class NegozioComponent implements OnInit {
   }
 } */
 import { Component, OnInit } from '@angular/core';
-import { ProductService, UserService } from '../retrieve.services';
+import { ProductService } from '../../retrieve.services';
 @Component({
   selector: 'app-negozio',
   templateUrl: './negozio.component.html',
   styleUrls: ['./negozio.component.css'],
 })
 export class NegozioComponent implements OnInit {
-  constructor(
-    private productService: ProductService,
-    private userService: UserService
-  ) {}
+  constructor(private productService: ProductService) {}
   ngOnInit(): void {
     const prodotti = this.productService.getProducts();
     prodotti.subscribe((data) => console.log(data));
-
-    const user = this.userService.getUsers(); // da spostare in app, va chiamato solo una volta quando entri nel sito per identificare l'utente
-    user.subscribe((data) => console.log(data));
   }
 }

@@ -6,16 +6,16 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { CarrelloComponent } from './carrello/carrello.component';
-import { ContattiComponent } from './contatti/contatti.component';
+import { CarrelloComponent } from './components/carrello/carrello.component';
+import { ContattiComponent } from './components/contatti/contatti.component';
+import { HomeComponent } from './components/home/home.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { NegozioComponent } from './components/negozio/negozio.component';
+import { OrdineComponent } from './components/ordine/ordine.component';
+import { ProdottoComponent } from './components/prodotto/prodotto.component';
 import { DataService } from './data.services';
-import { HomeComponent } from './home/home.component';
-import { NavbarComponent } from './navbar/navbar.component';
-import { NegozioComponent } from './negozio/negozio.component';
-import { OrdineComponent } from './ordine/ordine.component';
-import { ProdottoComponent } from './prodotto/prodotto.component';
 //import { FetchData } from './retrieve.services';
-import { UtenteComponent } from './utente/utente.component';
+import { UtenteComponent } from './components/utente/utente.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,7 +26,7 @@ import { UtenteComponent } from './utente/utente.component';
     NavbarComponent,
     NegozioComponent,
     HomeComponent,
-    ContattiComponent
+    ContattiComponent,
   ],
   imports: [
     BrowserModule,
