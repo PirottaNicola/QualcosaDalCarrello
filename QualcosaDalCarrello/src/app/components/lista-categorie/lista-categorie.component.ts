@@ -1,11 +1,11 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
-  selector: 'app-categoria',
-  templateUrl: './categoria.component.html',
-  styleUrls: ['./categoria.component.css']
+  selector: 'app-lista-categorie',
+  templateUrl: './lista-categorie.component.html',
+  styleUrls: ['./lista-categorie.component.css']
 })
-export class CategoriaComponent {
+export class ListaCategorieComponent {
   @Output() mostraCategorieValore = new EventEmitter<boolean>();
 
   mostraCategorie(value: boolean) {
