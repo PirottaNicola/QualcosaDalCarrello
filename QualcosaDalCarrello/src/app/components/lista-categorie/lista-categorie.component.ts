@@ -1,12 +1,12 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-lista-categorie',
   templateUrl: './lista-categorie.component.html',
-  styleUrls: ['./lista-categorie.component.css']
+  styleUrls: ['./lista-categorie.component.css'],
 })
 export class ListaCategorieComponent {
-  @Output() mostraCategorieValore = new EventEmitter<boolean>();
+  /*   @Output() mostraCategorieValore = new EventEmitter<boolean>();
 
   mostraCategorie(value: boolean) {
     this.mostraCategorieValore.emit(value);
@@ -14,5 +14,5 @@ export class ListaCategorieComponent {
   redirect(a: Event) {
     console.log((a.currentTarget as Element).id);
 
-  }
+  } CON NESTED ROOTS NON SERVE PIU! */
 }

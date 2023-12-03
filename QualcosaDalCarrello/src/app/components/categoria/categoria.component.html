@@ -1,14 +1,8 @@
-<div class="container">
-    <div class="row">
-        <h3>{{nomeCategoria}}</h3>
-        <div class="col-12 border border-3 p-3 d-flex flex-wrap justify-content-around">
-            <div class="prodottiProva border p-3 m-2"></div>
-            <div class="prodottiProva border p-3 m-2"></div>
-            <div class="prodottiProva border p-3 m-2"></div>
-            <div class="prodottiProva border p-3 m-2"></div>
-            <div class="prodottiProva border p-3 m-2"></div>
-            <div class="prodottiProva border p-3 m-2"></div>
-            <div class="prodottiProva border p-3 m-2"></div>
+<div class="container-lg">
+    <h3>{{nomeCategoria}}</h3>
+    <div class="d-flex justify-content-around align-items-stretch flex-wrap" style="width: 100%;">
+        <div *ngFor="let p of prodotti" style="max-width: 30%; min-width: 200px; margin-top: 2em;">
+            <app-prodotto [p]="p"></app-prodotto>
         </div>
     </div>
 </div>

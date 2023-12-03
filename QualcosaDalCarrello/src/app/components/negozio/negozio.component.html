@@ -1,13 +1,7 @@
 <div class="container">
     <div class=" d-flex align-items-center ">
-
         <p class="fs-1">Negozio</p>
         <i class="bi bi-basket2-fill fs-3 p-2 d-flex align-items-center justify-content-center"></i>
     </div>
 </div>
-<app-lista-categorie *ngIf="variabile" (mostraCategorieValore)="categorieSiNo(false)"></app-lista-categorie>
-<!-- temporaneo -->
-<br><br><br><br><br>
-<h1 class="border border-3 w-100"></h1>
-<!-- fine temporaneo -->
-<app-categoria></app-categoria>
+<router-outlet></router-outlet> <!--? This is where the nested routes will be rendered -->

@@ -1,44 +1,41 @@
 <div class="container">
     <h3 class="d-flex align-items-center justify-content-center flex-column">Scegli Categoria</h3>
     <div class="row d-flex">
-
         <div id="all" class="col-12  p-3 d-flex align-items-center justify-content-center flex-column"
-            (click)="redirect($event)" (click)="mostraCategorie(false)">
+            routerLink="/negozio/categoria" [queryParams]="{c:'all'}">
             <h5 class="categoria border border-3 p-3 m-auto">Tutti i prodotti</h5>
         </div>
-        <div id="Laptop" #prodotto
-            class="col-4 border categoria p-3 d-flex align-items-center justify-content-center flex-column"
-            (click)="redirect($event)">
+        <div id="Laptop" class="col-4 border categoria p-3 d-flex align-items-center justify-content-center flex-column"
+            routerLink="/negozio/categoria" [queryParams]="{c:'Laptop'}">
             <p>Laptop</p>
             <i class="bi bi-laptop"></i>
         </div>
-        <div id="Desktop" #prodotto
+        <div id="Desktop"
             class="col-4 border categoria p-3 d-flex align-items-center justify-content-center flex-column"
-            (click)="redirect($event)">
+            routerLink="/negozio/categoria" [queryParams]="{c:'Desktop'}">
             <p>Desktop</p>
             <i class="bi bi-pc-display"></i>
         </div>
-        <div id="Tablet" #prodotto
-            class="col-4 border categoria p-3 d-flex align-items-center justify-content-center flex-column"
-            (click)="redirect($event)">
+        <div id="Tablet" class="col-4 border categoria p-3 d-flex align-items-center justify-content-center flex-column"
+            routerLink="/negozio/categoria" [queryParams]="{c:'Tablet'}">
             <p>Tablet</p>
             <i class="bi bi-tablet"></i>
         </div>
-        <div id="Accessories" #prodotto
+        <div id="Accessories"
             class="col-4 border categoria p-3 d-flex align-items-center justify-content-center flex-column"
-            (click)="redirect($event)">
+            routerLink="/negozio/categoria" [queryParams]="{c:'Accessories'}">
             <p>Accessories</p>
             <i class="bi bi-keyboard"></i>
         </div>
-        <div id="Hardware" #prodotto
+        <div id="Hardware"
             class="col-4 border categoria p-3 d-flex align-items-center justify-content-center flex-column"
-            (click)="redirect($event)">
+            routerLink="/negozio/categoria" [queryParams]="{c:'Hardware'}">
             <p>Hardware</p>
             <i class="bi bi-motherboard"></i>
         </div>
-        <div id="Software" #prodotto
+        <div id="Software"
             class="col-4 border categoria p-3 d-flex align-items-center justify-content-center flex-column"
-            (click)="redirect($event)">
+            routerLink="/negozio/categoria" [queryParams]="{c:'Software'}">
             <p>Software</p>
             <i class="bi bi-boxes"></i>
         </div>
