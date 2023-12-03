@@ -1,1 +1,12 @@
-<p>prodotto works!</p>
+<div class="card">
+    <img class="card-img-top" src="../../../assets/images/{{p.urlImmagine}}" alt="Product image">
+    <div class="card-body">
+        <h5 class="card-title">{{p.nome}}</h5>
+        <p class="card-text">{{p.prezzo}}€</p>
+        <br>
+        <h6 class="card-subtitle mb">Varianti</h6>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item" *ngFor="let variante of p.varianti">{{variante}}</li>
+        </ul>
+    </div>
+</div>
