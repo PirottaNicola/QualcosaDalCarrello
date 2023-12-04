@@ -19,6 +19,7 @@ import { CaroselloComponent } from './components/carosello/carosello.component';
 import { ListaCategorieComponent } from './components/lista-categorie/lista-categorie.component';
 import { UtenteComponent } from './components/utente/utente.component';
 import { CategoriaComponent } from './components/categoria/categoria.component';
+import { ChartComponent } from './components/chart/chart.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,6 +34,7 @@ import { CategoriaComponent } from './components/categoria/categoria.component';
     ListaCategorieComponent,
     CaroselloComponent,
     CategoriaComponent,
+    ChartComponent,
   ],
   imports: [
     BrowserModule,
