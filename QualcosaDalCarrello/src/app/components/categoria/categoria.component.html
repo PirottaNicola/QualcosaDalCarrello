@@ -1,8 +1,15 @@
-<div class="container-lg">
-    <h3>{{nomeCategoria}}</h3>
-    <div class="d-flex justify-content-around align-items-stretch flex-wrap" style="width: 100%;">
-        <div *ngFor="let p of prodotti" style="max-width: 30%; min-width: 200px; margin-top: 2em;">
-            <app-prodotto [p]="p"></app-prodotto>
+<div class="container">
+    <div class="row">
+        <div class="d-flex justify-content-between m-2">
+            <p class="fs-2 ">{{nomeCategoria}}</p>
+            <button type="button" (click)="toggleView()" class="btn btn-secondary h-75">View</button>
+        </div>
+        <div [ngClass]="currentClass" class="d-flex justify-content-around align-items-stretch flex-wrap border "
+            style="width: 100%;">
+            <div class="d-flex flex-row m-3" *ngFor="let p of prodotti"
+                style="max-width: 30%; min-width: 200px; margin-top: 2em;">
+                <app-prodotto [p]="p"></app-prodotto>
+            </div>
         </div>
     </div>
 </div>
