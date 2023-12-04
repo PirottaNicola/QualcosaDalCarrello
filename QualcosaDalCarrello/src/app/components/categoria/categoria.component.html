@@ -2,13 +2,25 @@
     <div class="row">
         <div class="d-flex justify-content-between m-2">
             <p class="fs-2 ">{{nomeCategoria}}</p>
-            <button type="button" (click)="toggleView()" class="btn btn-secondary h-75">View</button>
+            <button type="button" (click)="toggleView()" class="btn btn-secondary h-75">
+                <p *ngIf="currentClass=='list-group list-group-horizontal'">Lista</p>
+                <p *ngIf="currentClass=='list-group'">Griglia</p>
+            </button>
         </div>
-        <div [ngClass]="currentClass" class="d-flex justify-content-around align-items-stretch flex-wrap border "
-            style="width: 100%;">
+        <div *ngIf="currentClass=='list-group list-group-horizontal'" [ngClass]="currentClass"
+            class="d-flex justify-content-around align-items-stretch flex-wrap border " style="width: 100%;">
             <div class="d-flex flex-row m-3" *ngFor="let p of prodotti"
                 style="max-width: 30%; min-width: 200px; margin-top: 2em;">
                 <app-prodotto [p]="p"></app-prodotto>
+            </div>
+        </div>
+        <div *ngIf="currentClass=='list-group'" [ngClass]="currentClass"
+            class="d-flex justify-content-around align-items-stretch flex-column flex-wrap border "
+            style="width: 100%;">
+            <div class="list-group m-3" *ngFor="let p of prodotti">
+                <li class="list-group-item w-100">
+                    <app-prodotto-riga [p]="p"></app-prodotto-riga>
+                </li>
             </div>
         </div>
     </div>
