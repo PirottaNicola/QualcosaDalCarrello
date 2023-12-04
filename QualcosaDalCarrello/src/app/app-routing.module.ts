@@ -6,6 +6,7 @@ import { HomeComponent } from './components/home/home.component';
 import { ListaCategorieComponent } from './components/lista-categorie/lista-categorie.component';
 import { NegozioComponent } from './components/negozio/negozio.component';
 import { UtenteComponent } from './components/utente/utente.component';
+import { CarrelloComponent } from './components/carrello/carrello.component';
 
 const routes: Routes = [
   { path: 'utente', component: UtenteComponent },
@@ -19,6 +20,7 @@ const routes: Routes = [
     ],
   },
   { path: 'contatti', component: ContattiComponent },
+  { path: 'carrello', component: CarrelloComponent },
   { path: '**', component: HomeComponent },
 ];
 
@@ -26,4 +28,4 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }
