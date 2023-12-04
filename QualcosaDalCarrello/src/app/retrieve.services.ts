@@ -17,6 +17,8 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Prodotto } from './models/prodotto.module';
+import { Reclamo} from './models/reclamo.module';
+
 @Injectable({
   providedIn: 'root',
 })
@@ -111,5 +113,30 @@ export class cartService {
 
   deleteCart(id: number): Observable<any> {
     return this.http.delete(this.cartUrl + id);
+  }
+}
+
+
+@Injectable({
+  providedIn: 'root',
+})
+export class reclamiService {
+  private reclamiUrl = 'api/reclami';
+  constructor(private http: HttpClient) {}
+
+  getReclami(): Observable<Reclamo[]> {
+    return this.http.get<Reclamo[]>(this.reclamiUrl);
+  }
+
+  createReclami(reclami: any): Observable<any> {
+    return this.http.post(this.reclamiUrl, reclami);
+  }
+
+  editReclami(reclami: any): Observable<any> {
+    return this.http.put(this.reclamiUrl + reclami.id, reclami);
+  }
+
+  deleteReclami(id: number): Observable<any> {
+    return this.http.delete(this.reclamiUrl + id);
   }
 }
