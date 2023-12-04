@@ -1,13 +1,12 @@
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import Chart from 'chart.js/auto';
 import { ProductService } from '../../retrieve.services';
 
 @Component({
   selector: 'app-chart',
   templateUrl: './chart.component.html',
-  styleUrls: ['./chart.component.css']
+  styleUrls: ['./chart.component.css'],
 })
-
 export class ChartComponent implements OnInit {
   totaleProdottiVenduti: number = 0;
   totaleNumeroReclami: number = 0;
@@ -37,17 +36,20 @@ export class ChartComponent implements OnInit {
   }
 
   creaGraficoTorta(): void {
-    const ctx: CanvasRenderingContext2D = this.pieChartCanvas.nativeElement.getContext('2d');
+    const ctx: CanvasRenderingContext2D =
+      this.pieChartCanvas.nativeElement.getContext('2d');
 
     new Chart(ctx, {
       type: 'bar',
       data: {
         labels: ['Prodotti Venduti', 'Numero Reclami'],
-        datasets: [{
-          data: [this.totaleProdottiVenduti, this.totaleNumeroReclami],
-          backgroundColor: ['blue', 'red']
-        }]
-      }
+        datasets: [
+          {
+            data: [this.totaleProdottiVenduti, this.totaleNumeroReclami],
+            backgroundColor: ['blue', 'red'],
+          },
+        ],
+      },
     });
   }
 }
