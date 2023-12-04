@@ -81,6 +81,7 @@ export class DataService implements InMemoryDbService {
           indirizzi: ['Via pace brindisina 1'],
           metodiPagamento: ['Sei Povero'],
           storicoOrdini: [],
+          carrelloCorrente: []
         },
       ],
     };

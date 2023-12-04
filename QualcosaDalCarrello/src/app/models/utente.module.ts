@@ -1,3 +1,4 @@
+import { Carrello } from "./carrello.module";
 import { Ordine } from "./ordine.module";
 
 export interface Utente {
@@ -7,5 +8,6 @@ export interface Utente {
     indirizzi: string[];
     metodiPagamento: string[];
     storicoOrdini: Ordine[];
+    carrelloCorrente: Carrello;
 }
 
