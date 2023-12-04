@@ -34,22 +34,17 @@ export class ChartComponent implements OnInit {
       (acc, prodotto) => acc + prodotto.numeroReclami,
       0
     );
-    this.percentualeReclami = (this.totaleNumeroReclami / this.totaleProdottiVenduti) * 100;
+    this.percentualeReclami =
+      (this.totaleNumeroReclami / this.totaleProdottiVenduti) * 100;
   }
 
-<<<<<<< HEAD
   creaGraficoBarre(): void {
-    const ctx: CanvasRenderingContext2D = this.barChartCanvas.nativeElement.getContext('2d');
-=======
-  creaGraficoTorta(): void {
     const ctx: CanvasRenderingContext2D =
-      this.pieChartCanvas.nativeElement.getContext('2d');
->>>>>>> 5ce666ad87125d6adc1480719b962f83b6ccf1c2
+      this.barChartCanvas.nativeElement.getContext('2d');
 
     new Chart(ctx, {
       type: 'bar',
       data: {
-<<<<<<< HEAD
         labels: [''],
         datasets: [
           {
@@ -67,20 +62,10 @@ export class ChartComponent implements OnInit {
       options: {
         scales: {
           y: {
-            beginAtZero: true
-          }
-        }
-      }
-=======
-        labels: ['Prodotti Venduti', 'Numero Reclami'],
-        datasets: [
-          {
-            data: [this.totaleProdottiVenduti, this.totaleNumeroReclami],
-            backgroundColor: ['blue', 'red'],
+            beginAtZero: true,
           },
-        ],
+        },
       },
->>>>>>> 5ce666ad87125d6adc1480719b962f83b6ccf1c2
     });
   }
 }
