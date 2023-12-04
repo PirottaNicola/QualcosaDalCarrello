@@ -1,13 +1,12 @@
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import Chart from 'chart.js/auto';
 import { ProductService } from '../../retrieve.services';
 
 @Component({
   selector: 'app-chart',
   templateUrl: './chart.component.html',
-  styleUrls: ['./chart.component.css']
+  styleUrls: ['./chart.component.css'],
 })
-
 export class ChartComponent implements OnInit {
   totaleProdottiVenduti: number = 0;
   totaleNumeroReclami: number = 0;
@@ -38,12 +37,19 @@ export class ChartComponent implements OnInit {
     this.percentualeReclami = (this.totaleNumeroReclami / this.totaleProdottiVenduti) * 100;
   }
 
+<<<<<<< HEAD
   creaGraficoBarre(): void {
     const ctx: CanvasRenderingContext2D = this.barChartCanvas.nativeElement.getContext('2d');
+=======
+  creaGraficoTorta(): void {
+    const ctx: CanvasRenderingContext2D =
+      this.pieChartCanvas.nativeElement.getContext('2d');
+>>>>>>> 5ce666ad87125d6adc1480719b962f83b6ccf1c2
 
     new Chart(ctx, {
       type: 'bar',
       data: {
+<<<<<<< HEAD
         labels: [''],
         datasets: [
           {
@@ -65,6 +71,16 @@ export class ChartComponent implements OnInit {
           }
         }
       }
+=======
+        labels: ['Prodotti Venduti', 'Numero Reclami'],
+        datasets: [
+          {
+            data: [this.totaleProdottiVenduti, this.totaleNumeroReclami],
+            backgroundColor: ['blue', 'red'],
+          },
+        ],
+      },
+>>>>>>> 5ce666ad87125d6adc1480719b962f83b6ccf1c2
     });
   }
 }

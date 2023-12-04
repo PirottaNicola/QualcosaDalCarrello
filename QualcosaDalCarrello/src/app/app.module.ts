@@ -16,10 +16,11 @@ import { ProdottoComponent } from './components/prodotto/prodotto.component';
 import { DataService } from './data.services';
 //import { FetchData } from './retrieve.services';
 import { CaroselloComponent } from './components/carosello/carosello.component';
-import { ListaCategorieComponent } from './components/lista-categorie/lista-categorie.component';
-import { UtenteComponent } from './components/utente/utente.component';
 import { CategoriaComponent } from './components/categoria/categoria.component';
 import { ChartComponent } from './components/chart/chart.component';
+import { ListaCategorieComponent } from './components/lista-categorie/lista-categorie.component';
+import { UtenteComponent } from './components/utente/utente.component';
+import { ProdottoRigaComponent } from './prodotto-riga/prodotto-riga.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -35,6 +36,7 @@ import { ChartComponent } from './components/chart/chart.component';
     CaroselloComponent,
     CategoriaComponent,
     ChartComponent,
+    ProdottoRigaComponent,
   ],
   imports: [
     BrowserModule,
