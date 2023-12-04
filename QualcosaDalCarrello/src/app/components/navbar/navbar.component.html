@@ -15,5 +15,15 @@
                 <a class="nav-link" routerLink="/contatti">Contatti</a>
             </li>
         </ul>
+        <div ngbDropdown style="position: absolute; right: 0; top: 50%; transform: translateY(-50%); z-index: 100;">
+            <button type="button" class="btn accountIcon" id="dropdownBasic1" style="color: #ffffff00;"
+                ngbDropdownToggle>
+            </button>
+            <div ngbDropdownMenu aria-labelledby="dropdownBasic1" style="transform: translateX(-100%); z-index: 100;">
+                <button ngbDropdownItem routerLink="/carrello">Carrello</button>
+                <button ngbDropdownItem routerLink="/ordini">Ordini</button>
+                <button ngbDropdownItem routerLink="/supporto">Supporto</button>
+            </div>
+        </div>
     </div>
 </nav>

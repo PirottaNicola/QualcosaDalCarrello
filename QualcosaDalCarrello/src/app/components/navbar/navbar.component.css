@@ -1,0 +1,7 @@
+.accountIcon {
+
+    cursor: pointer;
+    background-image: url('../../../assets/images/account.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+}
