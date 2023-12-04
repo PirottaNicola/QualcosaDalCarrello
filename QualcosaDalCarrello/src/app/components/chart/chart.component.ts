@@ -11,8 +11,9 @@ import { ProductService } from '../../retrieve.services';
 export class ChartComponent implements OnInit {
   totaleProdottiVenduti: number = 0;
   totaleNumeroReclami: number = 0;
+  percentualeReclami: number = 0;
 
-  @ViewChild('pieChartCanvas') private pieChartCanvas!: ElementRef;
+  @ViewChild('barChartCanvas') private barChartCanvas!: ElementRef;
 
   constructor(private productService: ProductService) {}
 
@@ -20,7 +21,7 @@ export class ChartComponent implements OnInit {
     const prodotti = this.productService.getProducts();
     prodotti.subscribe((data) => {
       this.calcolaTotali(data);
-      this.creaGraficoTorta();
+      this.creaGraficoBarre();
     });
   }
 
@@ -34,19 +35,35 @@ export class ChartComponent implements OnInit {
       (acc, prodotto) => acc + prodotto.numeroReclami,
       0
     );
+    this.percentualeReclami = (this.totaleNumeroReclami / this.totaleProdottiVenduti) * 100;
   }
 
-  creaGraficoTorta(): void {
-    const ctx: CanvasRenderingContext2D = this.pieChartCanvas.nativeElement.getContext('2d');
+  creaGraficoBarre(): void {
+    const ctx: CanvasRenderingContext2D = this.barChartCanvas.nativeElement.getContext('2d');
 
     new Chart(ctx, {
       type: 'bar',
       data: {
-        labels: ['Prodotti Venduti', 'Numero Reclami'],
-        datasets: [{
-          data: [this.totaleProdottiVenduti, this.totaleNumeroReclami],
-          backgroundColor: ['blue', 'red']
-        }]
+        labels: [''],
+        datasets: [
+          {
+            label: 'Prodotti Venduti',
+            data: [this.totaleProdottiVenduti],
+            backgroundColor: 'blue',
+          },
+          {
+            label: 'Percentuale Reclami',
+            data: [this.percentualeReclami],
+            backgroundColor: 'red',
+          },
+        ],
+      },
+      options: {
+        scales: {
+          y: {
+            beginAtZero: true
+          }
+        }
       }
     });
   }
