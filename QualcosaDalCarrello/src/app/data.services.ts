@@ -9,7 +9,7 @@ export class DataService implements InMemoryDbService {
     console.log('Data service created');
   }
 
-  
+
   private randomDate(start: Date, end: Date): Date {
     return new Date(start.getTime() + Math.random() * (end.getTime() - start.getTime()));
   }
@@ -126,7 +126,20 @@ export class DataService implements InMemoryDbService {
           indirizzi: ['Via pace brindisina 1'],
           metodiPagamento: ['Sei Povero'],
           storicoOrdini: [],
-          carrelloCorrente: { id: 1, prodotti: [], utente: {}, prezzoTotale: 0 }
+          carrelloCorrente: {
+            id: 1, prodotti: [
+              {
+                id: 6,
+                urlImmagine: 'ipad.png',
+                categoria: 'Tablet',
+                prezzo: 499,
+                nome: 'Ipad Air 3',
+                varianti: [128, 256],
+                quantitàProdottiVenduti: 355,
+                numeroReclami: 33,
+              }
+            ], utente: {}, prezzoTotale: 0
+          }
         },
       ],
       reclami: [

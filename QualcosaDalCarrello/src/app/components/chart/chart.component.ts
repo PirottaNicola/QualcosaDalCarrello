@@ -40,7 +40,7 @@ export class ChartComponent implements OnInit{
       0
     );
     this.percentualeReclami =
-    (this.totaleNumeroReclami / this.totaleProdottiVenduti) * 100;
+      (this.totaleNumeroReclami / this.totaleProdottiVenduti) * 100;
   }
 
   calcolaTempoMedioRisposta(): void {

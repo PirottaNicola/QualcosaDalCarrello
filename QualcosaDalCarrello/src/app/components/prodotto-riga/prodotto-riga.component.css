@@ -1,0 +1,9 @@
+#add:hover {
+    cursor: pointer;
+    background-color: rgb(85, 176, 83);
+}
+
+#remove:hover {
+    cursor: pointer;
+    background-color: rgb(255, 0, 0);
+}

@@ -5,7 +5,8 @@ import {
   OnInit,
 } from '@angular/core';
 import { LocalDataService } from 'src/app/local-data.service';
-
+import { Carrello } from 'src/app/models/carrello.module';
+import { Prodotto } from 'src/app/models/prodotto.module';
 @Component({
   selector: 'app-carrello',
   templateUrl: './carrello.component.html',
@@ -21,8 +22,21 @@ export class CarrelloComponent {
         this.utente = data;
         this.carrello = this.utente.carrelloCorrente;
         console.log('utente: ', this.utente);
-        console.log('carrello: ', this.carrello);
+        console.log('carrello: ', this.carrello.prodotti);
+        this.carrello.prezzoTotale = this.sommaPrezzo(this.carrello.prodotti);
       }
     });
+
+  }
+  sommaPrezzo(prodotti: Prodotto[]): number {
+    let totale: number = 0;
+    if (prodotti.length > 0) {
+      for (let prodotto of prodotti) {
+        totale += prodotto.prezzo;
+        console.log("calcolosomma");
+      }
+    }
+    console.log("calcolosomma2");
+    return totale;
   }
 }
