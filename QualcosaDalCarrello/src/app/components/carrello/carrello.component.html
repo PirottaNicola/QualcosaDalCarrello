@@ -13,21 +13,58 @@
         </div>
         <div class="col-4 border mh-100 ">
             <div class="border p-1 m-1">
-                <div class="fw-bold fs-3">
+                <div class="fw-bold fs-3 m-1">
                     <p>
                         {{utente.nome}}
                         {{utente.cognome}}
                     </p>
                 </div>
-                <div>
+                <div class="m-1">
                     <p class="m-0">Indirizzo:</p>
                     <p class="fw-light m-0">{{utente.indirizzi[0]}}</p>
+                </div>
+                <div class="m-1">
+                    <p class="m-0">Metodo di pagamento:</p>
+                    <p class="fw-light m-0">{{utente.metodiPagamento[0]}}</p>
                 </div>
             </div>
             <div class="border p-1 m-1">
                 <h3>Prezzo totale</h3>
                 <p class="fs-1 fw-bold">{{carrello.prezzoTotale}}€</p>
-                <button type="button" class="btn btn-success btn-lg w-100">Prosegui</button>
+                <button (click)="openModale()" type="button" class="btn btn-success btn-lg w-100" data-bs-toggle="modal"
+                    data-bs-target="#exampleModal">Prosegui</button>
+            </div>
+        </div>
+        <!-- Button trigger modal -->
+        <!--  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+            Launch static backdrop modal
+        </button> -->
+
+    </div>
+    <!-- Modal -->
+    <div [ngClass]="viewModal">
+        <h1>a</h1>
+        <h1>a</h1>
+        <h1>a</h1>
+        <h1>a</h1>
+    </div>
+    <!-- la classe modal fa conflitto con il d-none  -->
+    <div [ngClass]="viewModal" class="modal fade" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Modal title</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>Modal body text goes here.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
             </div>
         </div>
     </div>

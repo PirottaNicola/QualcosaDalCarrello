@@ -1,8 +1,5 @@
 import {
-  AfterViewChecked,
-  AfterViewInit,
-  Component,
-  OnInit,
+  Component, ElementRef, ViewChild,
 } from '@angular/core';
 import { LocalDataService } from 'src/app/local-data.service';
 import { Carrello } from 'src/app/models/carrello.module';
@@ -15,6 +12,10 @@ import { Prodotto } from 'src/app/models/prodotto.module';
 export class CarrelloComponent {
   carrello: any;
   utente: any;
+  @ViewChild('modale') modale!: ElementRef;
+  dNone: string = "d-none";
+  dDisplay: string = " ";
+  viewModal: string = this.dNone;
   constructor(private localData: LocalDataService) {
     // viene preso l'utente dal servizio locale
     this.localData.utente.subscribe((data) => {
@@ -28,6 +29,15 @@ export class CarrelloComponent {
     });
 
   }
+  openModale() {
+    if (this.viewModal === this.dNone) {
+      this.viewModal = this.dDisplay;
+      console.log();
+
+    } else this.viewModal = this.dNone;
+  }
+
+
   sommaPrezzo(prodotti: Prodotto[]): number {
     let totale: number = 0;
     if (prodotti.length > 0) {
