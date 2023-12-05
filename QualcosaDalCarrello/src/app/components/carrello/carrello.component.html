@@ -1,15 +1,33 @@
-<div class="container m-4 ">
-    <div class="row flex-nowrap justify-content-center">
+<div class="container m-4">
+    <div class="row flex-nowrap justify-content-center ">
         <div class="col-8 border" style="width: 50vw;">
-            <h2>a</h2>
-            <h1>a</h1>
-            <h1>a</h1>
-            <h1>a</h1>
+            <div *ngFor="let p of carrello.prodotti">
+                <div class="d-flex flex-row  align-items-center border m-1 p-2 rounded-1">
+                    <img src={{p.urlImmagine}} alt="Immagine non trovata" class="rounded-1" style="width:25%;">
+                    <h5 class="card-title m-4 fs-2 border border-top-0 border-bottom-0 ms-5 p-2 w-50">{{p.nome}}</h5>
+                    <p class="card-text ms-auto fs-1 ">{{p.prezzo}}€</p>
+                </div>
+            </div>
+
         </div>
-        <div class="col-4 border">
-            <h3>Prezzo totale</h3>
-            <p class="fs-1">0</p>
-            <button type="button" class="btn btn-success btn-lg">Prosegui</button>
+        <div class="col-4 border mh-100 ">
+            <div class="border p-1 m-1">
+                <div class="fw-bold fs-3">
+                    <p>
+                        {{utente.nome}}
+                        {{utente.cognome}}
+                    </p>
+                </div>
+                <div>
+                    <p class="m-0">Indirizzo:</p>
+                    <p class="fw-light m-0">{{utente.indirizzi[0]}}</p>
+                </div>
+            </div>
+            <div class="border p-1 m-1">
+                <h3>Prezzo totale</h3>
+                <p class="fs-1 fw-bold">{{carrello.prezzoTotale}}</p>
+                <button type="button" class="btn btn-success btn-lg w-100">Prosegui</button>
+            </div>
         </div>
     </div>
 </div>
