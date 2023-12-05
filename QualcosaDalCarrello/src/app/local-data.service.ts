@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
+import { Prodotto } from './models/prodotto.module';
 
 @Injectable({
   providedIn: 'root',
@@ -9,5 +10,28 @@ export class LocalDataService {
 
   updateUtente(value: any) {
     this.utente.next(value);
+  }
+
+  // aggiunge un prodotto al carrello
+  addProductToCart(prodotto: Prodotto) {
+    const utente = this.utente.getValue();
+    utente.carrelloCorrente.prodotti.push(prodotto);
+    this.updateUtente(utente);
+    console.log('aggiunto al carrello', utente.carrelloCorrente.prodotti);
+  }
+
+  // rimuove un prodotto dal carrello
+  removeProductFromCart(prodotto: Prodotto) {
+    const utente = this.utente.getValue();
+    // se il prodotto non è presente nel carrello, non fare nulla
+    if (!utente.carrelloCorrente.prodotti.includes(prodotto)) {
+      console.log('prodotto non presente nel carrello');
+
+      return;
+    }
+    const index = utente.carrelloCorrente.prodotti.indexOf(prodotto);
+    utente.carrelloCorrente.prodotti.splice(index, 1); // rimuove l'elemento dall'array
+    this.updateUtente(utente);
+    console.log('rimosso dal carrello', utente.carrelloCorrente.prodotti);
   }
 }

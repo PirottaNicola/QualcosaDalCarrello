@@ -8,7 +8,8 @@
         <ul class="list-group list-group-flush">
             <li class="list-group-item" *ngFor="let variante of p.varianti">{{variante}}</li>
         </ul>
-        <i class="bi bi-cart-plus-fill"></i>
-        <i class="bi bi-cart-plus"></i>
+        <i (click)="addProductToCart()" class="bi bi-cart-plus-fill" id="add"> Add</i>
+        <br>
+        <i (click)="removeProductFromCart()" class="bi bi-cart-plus" id="remove"> Remove</i>
     </div>
 </div>
