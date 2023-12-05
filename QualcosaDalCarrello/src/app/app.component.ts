@@ -18,7 +18,6 @@ export class AppComponent {
     const user = this.userService.getUsers();
     user.subscribe((data) => {
       this.utente = data[0];
-      const carrello = this.utente.carrello;
       // viene aggiornato il servizio locale con l'utente e il suo carrello
       this.localData.updateUtente(this.utente);
     });
