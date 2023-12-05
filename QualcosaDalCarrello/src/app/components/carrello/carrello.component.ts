@@ -5,10 +5,6 @@ import {
   OnInit,
 } from '@angular/core';
 import { LocalDataService } from 'src/app/local-data.service';
-import { Carrello } from 'src/app/models/carrello.module';
-import { Utente } from 'src/app/models/utente.module';
-import { UserService } from 'src/app/retrieve.services';
-import { UtenteComponent } from '../utente/utente.component';
 
 @Component({
   selector: 'app-carrello',
@@ -20,7 +16,7 @@ export class CarrelloComponent {
   utente: any;
   constructor(private localData: LocalDataService) {
     // viene preso l'utente dal servizio locale
-    this.localData.utente$.subscribe((data) => {
+    this.localData.utente.subscribe((data) => {
       if (data) {
         this.utente = data;
         this.carrello = this.utente.carrelloCorrente;
