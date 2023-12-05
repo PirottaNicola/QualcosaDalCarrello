@@ -19,8 +19,8 @@ import { CaroselloComponent } from './components/carosello/carosello.component';
 import { CategoriaComponent } from './components/categoria/categoria.component';
 import { ChartComponent } from './components/chart/chart.component';
 import { ListaCategorieComponent } from './components/lista-categorie/lista-categorie.component';
+import { ProdottoRigaComponent } from './components/prodotto-riga/prodotto-riga.component';
 import { UtenteComponent } from './components/utente/utente.component';
-import { ProdottoRigaComponent } from './prodotto-riga/prodotto-riga.component';
 @NgModule({
   declarations: [
     AppComponent,
