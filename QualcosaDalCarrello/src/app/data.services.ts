@@ -110,7 +110,7 @@ export class DataService implements InMemoryDbService {
             id: 1, prodotti: [
               {
                 id: 6,
-                urlImmagine: 'assets/images/ipad.png',
+                urlImmagine: 'ipad.png',
                 categoria: 'Tablet',
                 prezzo: 499,
                 nome: 'Ipad Air 3',
