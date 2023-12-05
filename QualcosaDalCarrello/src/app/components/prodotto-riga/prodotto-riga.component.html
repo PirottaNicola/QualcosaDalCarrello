@@ -3,5 +3,9 @@
         <h5 class="card-title">{{p.nome}}</h5>
         <p class="card-text">{{p.prezzo}}€</p>
     </div>
-    <div><i class="bi bi-cart-plus"></i></div>
+    <div>
+        <i (click)="addProductToCart()" class="bi bi-cart-plus-fill" id="add"> Add</i>
+        <br>
+        <i (click)="removeProductFromCart()" class="bi bi-cart-plus" id="remove"> Remove</i>
+    </div>
 </div>

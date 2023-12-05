@@ -1,14 +1,20 @@
-import { Component, ElementRef, OnInit, ViewChild, AfterViewChecked } from '@angular/core';
+import {
+  AfterViewChecked,
+  Component,
+  ElementRef,
+  OnInit,
+  ViewChild,
+} from '@angular/core';
 import Chart from 'chart.js/auto';
-import { ProductService, reclamiService } from '../../retrieve.services';
 import { Reclamo } from 'src/app/models/reclamo.module';
+import { ProductService, reclamiService } from '../../retrieve.services';
 
 @Component({
   selector: 'app-chart',
   templateUrl: './chart.component.html',
   styleUrls: ['./chart.component.css'],
 })
-export class ChartComponent implements OnInit,  AfterViewChecked{
+export class ChartComponent implements OnInit, AfterViewChecked {
   totaleProdottiVenduti: number = 0;
   totaleNumeroReclami: number = 0;
   percentualeReclami: number = 0;
@@ -16,7 +22,10 @@ export class ChartComponent implements OnInit,  AfterViewChecked{
 
   @ViewChild('barChartCanvas') private barChartCanvas!: ElementRef;
 
-  constructor(private productService: ProductService, private reclamiService: reclamiService) {}
+  constructor(
+    private productService: ProductService,
+    private reclamiService: reclamiService
+  ) {}
 
   ngOnInit(): void {
     const prodotti = this.productService.getProducts();
@@ -27,9 +36,7 @@ export class ChartComponent implements OnInit,  AfterViewChecked{
     });
   }
 
-  ngAfterViewChecked(): void{
-
-  }
+  ngAfterViewChecked(): void {}
 
   calcolaTotali(prodotti: any[]): void {
     this.totaleProdottiVenduti = prodotti.reduce(
@@ -42,18 +49,22 @@ export class ChartComponent implements OnInit,  AfterViewChecked{
       0
     );
     this.percentualeReclami =
-    (this.totaleNumeroReclami / this.totaleProdottiVenduti) * 100;
+      (this.totaleNumeroReclami / this.totaleProdottiVenduti) * 100;
   }
 
   calcolaTempoMedioRisposta(): void {
-      let sommaTempi: number = 0;
-      const reclami = this.reclamiService.getReclami().subscribe((data) => {
+    let sommaTempi: number = 0;
+    const reclami = this.reclamiService.getReclami().subscribe((data) => {
       data.forEach((i) => {
-        sommaTempi= sommaTempi+(new Date(i.dataRisposta).getTime()-new Date(i.dataInvio).getTime());
+        sommaTempi =
+          sommaTempi +
+          (new Date(i.dataRisposta).getTime() -
+            new Date(i.dataInvio).getTime());
         console.log(sommaTempi);
       });
       this.tempoMedioRisposta = sommaTempi / data.length;
-      console.log(this.tempoMedioRisposta);});
+      console.log(this.tempoMedioRisposta);
+    });
   }
 
   creaGraficoBarre(): void {
