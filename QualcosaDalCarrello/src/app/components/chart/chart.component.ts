@@ -1,42 +1,33 @@
-import {
-  AfterViewChecked,
-  Component,
-  ElementRef,
-  OnInit,
-  ViewChild,
-} from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import Chart from 'chart.js/auto';
-import { Reclamo } from 'src/app/models/reclamo.module';
 import { ProductService, reclamiService } from '../../retrieve.services';
+import { DataService } from '../../data.services'; 
 
 @Component({
   selector: 'app-chart',
   templateUrl: './chart.component.html',
   styleUrls: ['./chart.component.css'],
 })
-export class ChartComponent implements OnInit, AfterViewChecked {
+export class ChartComponent implements OnInit{
   totaleProdottiVenduti: number = 0;
   totaleNumeroReclami: number = 0;
   percentualeReclami: number = 0;
   tempoMedioRisposta: number = 0;
 
   @ViewChild('barChartCanvas') private barChartCanvas!: ElementRef;
+  @ViewChild('categoryChartCanvas') private categoryChartCanvas!: ElementRef;
 
-  constructor(
-    private productService: ProductService,
-    private reclamiService: reclamiService
-  ) {}
+  constructor(private productService: ProductService, private reclamiService: reclamiService, private dataService: DataService) {}
 
   ngOnInit(): void {
     const prodotti = this.productService.getProducts();
     prodotti.subscribe((data) => {
       this.calcolaTotali(data);
       this.calcolaTempoMedioRisposta();
-      this.creaGraficoBarre();
+      const prodottiPerCategoria = this.dataService.calcolaProdottiVendutiPerCategoria();
+      this.creaGraficoBarrePerCategoria(prodottiPerCategoria);
     });
   }
-
-  ngAfterViewChecked(): void {}
 
   calcolaTotali(prodotti: any[]): void {
     this.totaleProdottiVenduti = prodotti.reduce(
@@ -53,34 +44,34 @@ export class ChartComponent implements OnInit, AfterViewChecked {
   }
 
   calcolaTempoMedioRisposta(): void {
-    let sommaTempi: number = 0;
-    const reclami = this.reclamiService.getReclami().subscribe((data) => {
+    this.reclamiService.getReclami().subscribe((data) => {
+      let Tempo1: number = 0;
+      let Tempo2: number = 0;
+      let sommaTempi: number = 0;
+  
       data.forEach((i) => {
-        sommaTempi =
-          sommaTempi +
-          (new Date(i.dataRisposta).getTime() -
-            new Date(i.dataInvio).getTime());
-        console.log(sommaTempi);
+        Tempo1 +=  new Date(i.dataInvio).getTime();
+        Tempo2 +=  new Date(i.dataRisposta).getTime();
+        console.log(Tempo1, Tempo2);
       });
+      
+      console.log("Tempi Finali: " + Tempo1, Tempo2);
+      sommaTempi = Tempo2 - Tempo1;
+
+      sommaTempi = Math.floor((sommaTempi / (1000 * 60 * 60)) % 24);
       this.tempoMedioRisposta = sommaTempi / data.length;
-      console.log(this.tempoMedioRisposta);
+      this.creaGraficoBarre();
     });
   }
 
   creaGraficoBarre(): void {
-    const ctx: CanvasRenderingContext2D =
-      this.barChartCanvas.nativeElement.getContext('2d');
+    const ctx: CanvasRenderingContext2D = this.barChartCanvas.nativeElement.getContext('2d');
 
     new Chart(ctx, {
       type: 'bar',
       data: {
         labels: [''],
         datasets: [
-          {
-            label: 'Prodotti Venduti',
-            data: [this.totaleProdottiVenduti],
-            backgroundColor: 'blue',
-          },
           {
             label: 'Numero Reclami',
             data: [this.percentualeReclami],
@@ -90,6 +81,33 @@ export class ChartComponent implements OnInit, AfterViewChecked {
             label: 'Tempo Medio Risposta (ore)',
             data: [this.tempoMedioRisposta],
             backgroundColor: 'green',
+          },
+        ],
+      },
+      options: {
+        scales: {
+          y: {
+            beginAtZero: true,
+          },
+        },
+      },
+    });
+  }
+
+  creaGraficoBarrePerCategoria(prodottiPerCategoria: any): void {
+    const ctx: CanvasRenderingContext2D = this.categoryChartCanvas.nativeElement.getContext('2d');
+
+    // Utilizza colori diversi per ciascuna barra
+    const colors = ['red', 'blue', 'purple', 'yellow', 'gray', 'pink', 'brown'];
+
+    new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: ['Totale Prodotti Venduti', ...Object.keys(prodottiPerCategoria)],
+        datasets: [
+          {
+            data: [this.totaleProdottiVenduti, ...Object.values(prodottiPerCategoria)],
+            backgroundColor: colors,
           },
         ],
       },
