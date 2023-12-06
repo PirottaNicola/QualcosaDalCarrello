@@ -1,12 +1,13 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { CarrelloComponent } from './components/carrello/carrello.component';
 import { CategoriaComponent } from './components/categoria/categoria.component';
 import { ContattiComponent } from './components/contatti/contatti.component';
 import { HomeComponent } from './components/home/home.component';
 import { ListaCategorieComponent } from './components/lista-categorie/lista-categorie.component';
 import { NegozioComponent } from './components/negozio/negozio.component';
+import { SupportoComponent } from './components/supporto/supporto.component';
 import { UtenteComponent } from './components/utente/utente.component';
-import { CarrelloComponent } from './components/carrello/carrello.component';
 
 const routes: Routes = [
   { path: 'utente', component: UtenteComponent },
@@ -21,6 +22,7 @@ const routes: Routes = [
   },
   { path: 'contatti', component: ContattiComponent },
   { path: 'carrello', component: CarrelloComponent },
+  { path: 'supporto', component: SupportoComponent },
   { path: '**', component: HomeComponent },
 ];
 
@@ -28,4 +30,4 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

@@ -1,4 +1,54 @@
 <div>
-
-
+    <form #form="ngForm" (ngSubmit)="onSubmit()">
+        <div class="anagrafica d-flex flex-column">
+            <legend>Anagrafica</legend>
+            <label for="name">Nome</label>
+            <input type="text" id="nome" name="nome" required minlength="3" maxlength="30" [(ngModel)]="model.nome">
+            <label for="cognome">cognome</label>
+            <input type="text" id="cognome" ngModel name="cognome" required minlength="3" maxlength="75"
+                [(ngModel)]="model.cognome">
+            <label for="dataDiNascita">dataDiNascita</label>
+            <input type="date" id="dataDiNascita" name="dataDiNascita" [(ngModel)]="model.dataDiNascita">
+            <label for="luogoDiNascita">luogoDiNascita</label>
+            <input type="text" id="luogoDiNascita" ngModel name="luogoDiNascita" minlength="3" required>
+            <label for="codiceFiscale">codiceFiscale</label>
+            <input type="text" id="codiceFiscale" ngModel name="codiceFiscale" required pattern="[A-Za-z0-9]{16}"
+                [(ngModel)]="model.codiceFiscale">
+            <div class="sesso d-flex flex-column border m-1 p-1">
+                <label for="maschio">maschio <input type="radio" id="maschio" name="sesso" value="maschio"
+                        [(ngModel)]="model.sesso"></label>
+                <label for="femmina">femmina <input type="radio" id="femmina" name="sesso" value="femmina"
+                        [(ngModel)]="model.sesso"></label>
+                <label for="undefinedSex">undefinedSex <input type="radio" id="undefinedSex" name="sesso"
+                        value="Non specificato" [(ngModel)]="model.sesso"></label>
+            </div>
+            <label for="nazionalita">nazionalita</label>
+            <input type="text" id="nazionalita" ngModel name="nazionalita" required [(ngModel)]="model.nazionalita">
+        </div>
+        <!--.-->
+        <!-- TITOLI DI STUDIO -->
+        <!--.-->
+        <div class="titoli-distudio d-flex flex-column">
+            <legend>Titoli di studio</legend>
+            <label for="laurea">Hai una laurea</label>
+            <label for="laureaSi">Si: <input type="radio" name="laurea" id="laureaSi" value="si"
+                    [(ngModel)]="model.laurea"></label>
+            <label for="laureaNo">No: <input type="radio" name="laurea" id="laureaNo" value="no"
+                    [(ngModel)]="model.laurea"></label>
+            <div *ngIf="model.laurea === 'si'">
+                <select class="" name="tipoLaurea" id="tipoLaurea">
+                    <option value=""></option>
+                    <option value="Ingegneria">Ingegneria</option>
+                    <option value="Medicina">Medicina</option>
+                    <option value="Merendine">Merendine</option>
+                    <option value="Legge">Legge</option>
+                </select>
+            </div>
+            <div *ngIf="model.laurea === 'si'">
+                <label or="laureaInCorso">Laurea In corso?</label>
+                <input id="laureaInCorso" *ngIf="model.laurea === 'si'" type="checkbox" value="laureaInCorso"
+                    [(ngModel)]="model.laureaInCorso">
+            </div>
+        </div>
+    </form>
 </div>
