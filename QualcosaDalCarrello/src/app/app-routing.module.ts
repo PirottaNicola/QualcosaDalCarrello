@@ -8,6 +8,8 @@ import { ListaCategorieComponent } from './components/lista-categorie/lista-cate
 import { NegozioComponent } from './components/negozio/negozio.component';
 import { SupportoComponent } from './components/supporto/supporto.component';
 import { UtenteComponent } from './components/utente/utente.component';
+import { ReactiveFormComponent } from './components/reactive-form/reactive-form.component';
+
 
 const routes: Routes = [
   { path: 'utente', component: UtenteComponent },
@@ -22,7 +24,7 @@ const routes: Routes = [
   },
   { path: 'contatti', component: ContattiComponent },
   { path: 'carrello', component: CarrelloComponent },
-  { path: 'supporto', component: SupportoComponent },
+  { path: 'supporto', component: ReactiveFormComponent },
   { path: '**', component: HomeComponent },
 ];
 

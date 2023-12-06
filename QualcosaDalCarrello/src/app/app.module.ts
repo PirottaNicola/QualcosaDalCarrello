@@ -15,7 +15,7 @@ import { OrdineComponent } from './components/ordine/ordine.component';
 import { ProdottoComponent } from './components/prodotto/prodotto.component';
 import { DataService } from './data.services';
 //import { FetchData } from './retrieve.services';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CaroselloComponent } from './components/carosello/carosello.component';
 import { CategoriaComponent } from './components/categoria/categoria.component';
 import { ChartComponent } from './components/chart/chart.component';
@@ -23,6 +23,8 @@ import { ListaCategorieComponent } from './components/lista-categorie/lista-cate
 import { ProdottoRigaComponent } from './components/prodotto-riga/prodotto-riga.component';
 import { SupportoComponent } from './components/supporto/supporto.component';
 import { UtenteComponent } from './components/utente/utente.component';
+import { ReactiveFormComponent } from './components/reactive-form/reactive-form.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -40,6 +42,7 @@ import { UtenteComponent } from './components/utente/utente.component';
     ChartComponent,
     ProdottoRigaComponent,
     SupportoComponent,
+    ReactiveFormComponent,
   ],
   imports: [
     BrowserModule,
@@ -48,6 +51,7 @@ import { UtenteComponent } from './components/utente/utente.component';
     HttpClientInMemoryWebApiModule.forRoot(DataService),
     HttpClientModule,
     FormsModule,
+    ReactiveFormsModule
   ], // this imports are avaialble in all the application (in all the modules) and they are imported only once
   providers: [DataService], // this is the place where you put your services
   bootstrap: [AppComponent],
