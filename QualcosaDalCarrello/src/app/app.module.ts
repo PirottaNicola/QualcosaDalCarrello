@@ -21,6 +21,7 @@ import { ChartComponent } from './components/chart/chart.component';
 import { ListaCategorieComponent } from './components/lista-categorie/lista-categorie.component';
 import { ProdottoRigaComponent } from './components/prodotto-riga/prodotto-riga.component';
 import { UtenteComponent } from './components/utente/utente.component';
+import { SupportoComponent } from './components/supporto/supporto.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -37,6 +38,7 @@ import { UtenteComponent } from './components/utente/utente.component';
     CategoriaComponent,
     ChartComponent,
     ProdottoRigaComponent,
+    SupportoComponent,
   ],
   imports: [
     BrowserModule,
