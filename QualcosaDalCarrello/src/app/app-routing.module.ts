@@ -8,6 +8,7 @@ import { ContattiComponent } from './components/contatti/contatti.component';
 import { HomeComponent } from './components/home/home.component';
 import { ListaCategorieComponent } from './components/lista-categorie/lista-categorie.component';
 import { NegozioComponent } from './components/negozio/negozio.component';
+import { ReactiveFormComponent } from './components/reactive-form/reactive-form.component';
 import { SupportoComponent } from './components/supporto/supporto.component';
 import { UtenteComponent } from './components/utente/utente.component';
 
@@ -24,7 +25,7 @@ const routes: Routes = [
   },
   { path: 'contatti', component: ContattiComponent },
   { path: 'carrello', component: CarrelloComponent },
-  { path: 'supporto', component: SupportoComponent },
+  { path: 'supporto', component: ReactiveFormComponent },
   {
     path: 'admin',
     component: AdminPanelComponent,

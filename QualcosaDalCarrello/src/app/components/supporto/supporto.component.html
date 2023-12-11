@@ -45,10 +45,13 @@
                 </select>
             </div>
             <div *ngIf="model.laurea === 'si'">
-                <label or="laureaInCorso">Laurea In corso?</label>
-                <input id="laureaInCorso" *ngIf="model.laurea === 'si'" type="checkbox" value="laureaInCorso"
-                    [(ngModel)]="model.laureaInCorso">
-            </div>
+                <label><input type="checkbox" name="inCorso" [(ngModel)]="model.inCorso"> In Corso</label>
+            <div *ngIf="!model.inCorso">
+                <label for="annoConseguimento">Anno conseguimento</label>
+                 <input type="number" id="annoConseguimento" name="annoConseguimento" [(ngModel)]="model.annoConseguimento">
+              </div>
+              </div>
         </div>
     </form>
+    <button type="submit" [disabled]="!form.valid">Invia</button>
 </div>
