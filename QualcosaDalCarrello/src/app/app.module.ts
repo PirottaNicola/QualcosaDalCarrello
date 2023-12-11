@@ -16,6 +16,8 @@ import { ProdottoComponent } from './components/prodotto/prodotto.component';
 import { DataService } from './data.services';
 //import { FetchData } from './retrieve.services';
 import { FormsModule } from '@angular/forms';
+import { AuthGuardService } from './auth-guard.service';
+import { AdminPanelComponent } from './components/admin-panel/admin-panel.component';
 import { CaroselloComponent } from './components/carosello/carosello.component';
 import { CategoriaComponent } from './components/categoria/categoria.component';
 import { ChartComponent } from './components/chart/chart.component';
@@ -40,6 +42,7 @@ import { UtenteComponent } from './components/utente/utente.component';
     ChartComponent,
     ProdottoRigaComponent,
     SupportoComponent,
+    AdminPanelComponent,
   ],
   imports: [
     BrowserModule,
@@ -49,7 +52,7 @@ import { UtenteComponent } from './components/utente/utente.component';
     HttpClientModule,
     FormsModule,
   ], // this imports are avaialble in all the application (in all the modules) and they are imported only once
-  providers: [DataService], // this is the place where you put your services
+  providers: [DataService, AuthGuardService], // this is the place where you put your services
   bootstrap: [AppComponent],
 })
 export class AppModule {

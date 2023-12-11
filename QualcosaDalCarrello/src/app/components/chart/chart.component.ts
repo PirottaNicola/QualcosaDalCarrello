@@ -1,14 +1,14 @@
-import { Component, ElementRef, OnInit, ViewChild} from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import Chart from 'chart.js/auto';
+import { DataService } from '../../data.services';
 import { ProductService, reclamiService } from '../../retrieve.services';
-import { DataService } from '../../data.services'; 
 
 @Component({
   selector: 'app-chart',
   templateUrl: './chart.component.html',
   styleUrls: ['./chart.component.css'],
 })
-export class ChartComponent implements OnInit{
+export class ChartComponent implements OnInit {
   totaleProdottiVenduti: number = 0;
   totaleNumeroReclami: number = 0;
   percentualeReclami: number = 0;
@@ -17,14 +17,19 @@ export class ChartComponent implements OnInit{
   @ViewChild('barChartCanvas') private barChartCanvas!: ElementRef;
   @ViewChild('categoryChartCanvas') private categoryChartCanvas!: ElementRef;
 
-  constructor(private productService: ProductService, private reclamiService: reclamiService, private dataService: DataService) {}
+  constructor(
+    private productService: ProductService,
+    private reclamiService: reclamiService,
+    private dataService: DataService
+  ) {}
 
   ngOnInit(): void {
     const prodotti = this.productService.getProducts();
     prodotti.subscribe((data) => {
       this.calcolaTotali(data);
       this.calcolaTempoMedioRisposta();
-      const prodottiPerCategoria = this.dataService.calcolaProdottiVendutiPerCategoria();
+      const prodottiPerCategoria =
+        this.dataService.calcolaProdottiVendutiPerCategoria();
       this.creaGraficoBarrePerCategoria(prodottiPerCategoria);
     });
   }
@@ -48,14 +53,12 @@ export class ChartComponent implements OnInit{
       let Tempo1: number = 0;
       let Tempo2: number = 0;
       let sommaTempi: number = 0;
-  
+
       data.forEach((i) => {
-        Tempo1 +=  new Date(i.dataInvio).getTime();
-        Tempo2 +=  new Date(i.dataRisposta).getTime();
-        console.log(Tempo1, Tempo2);
+        Tempo1 += new Date(i.dataInvio).getTime();
+        Tempo2 += new Date(i.dataRisposta).getTime();
       });
-      
-      console.log("Tempi Finali: " + Tempo1, Tempo2);
+
       sommaTempi = Tempo2 - Tempo1;
 
       sommaTempi = Math.floor((sommaTempi / (1000 * 60 * 60)) % 24);
@@ -65,7 +68,8 @@ export class ChartComponent implements OnInit{
   }
 
   creaGraficoBarre(): void {
-    const ctx: CanvasRenderingContext2D = this.barChartCanvas.nativeElement.getContext('2d');
+    const ctx: CanvasRenderingContext2D =
+      this.barChartCanvas.nativeElement.getContext('2d');
 
     new Chart(ctx, {
       type: 'bar',
@@ -95,7 +99,8 @@ export class ChartComponent implements OnInit{
   }
 
   creaGraficoBarrePerCategoria(prodottiPerCategoria: any): void {
-    const ctx: CanvasRenderingContext2D = this.categoryChartCanvas.nativeElement.getContext('2d');
+    const ctx: CanvasRenderingContext2D =
+      this.categoryChartCanvas.nativeElement.getContext('2d');
 
     // Utilizza colori diversi per ciascuna barra
     const colors = ['red', 'blue', 'purple', 'yellow', 'gray', 'pink', 'brown'];
@@ -103,10 +108,16 @@ export class ChartComponent implements OnInit{
     new Chart(ctx, {
       type: 'bar',
       data: {
-        labels: ['Totale Prodotti Venduti', ...Object.keys(prodottiPerCategoria)],
+        labels: [
+          'Totale Prodotti Venduti',
+          ...Object.keys(prodottiPerCategoria),
+        ],
         datasets: [
           {
-            data: [this.totaleProdottiVenduti, ...Object.values(prodottiPerCategoria)],
+            data: [
+              this.totaleProdottiVenduti,
+              ...Object.values(prodottiPerCategoria),
+            ],
             backgroundColor: colors,
           },
         ],

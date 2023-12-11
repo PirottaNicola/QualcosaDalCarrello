@@ -13,7 +13,6 @@ export class CaroselloComponent {
     const prodotti = productService.getProducts();
     prodotti.subscribe((data) => {
       this.prodotti = data;
-      console.log(this.prodotti);
     });
   }
 }

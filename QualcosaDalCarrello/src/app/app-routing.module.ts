@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AuthGuardService } from './auth-guard.service';
+import { AdminPanelComponent } from './components/admin-panel/admin-panel.component';
 import { CarrelloComponent } from './components/carrello/carrello.component';
 import { CategoriaComponent } from './components/categoria/categoria.component';
 import { ContattiComponent } from './components/contatti/contatti.component';
@@ -23,6 +25,11 @@ const routes: Routes = [
   { path: 'contatti', component: ContattiComponent },
   { path: 'carrello', component: CarrelloComponent },
   { path: 'supporto', component: SupportoComponent },
+  {
+    path: 'admin',
+    component: AdminPanelComponent,
+    canActivate: [AuthGuardService], // this is the guard that checks if the user is logged in
+  },
   { path: '**', component: HomeComponent },
 ];
 
