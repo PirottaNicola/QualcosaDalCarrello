@@ -11,7 +11,6 @@ export class AuthService {
     // Check whether the token is expired and return
     // true or false
     const isAuthenticated = false;
-    console.log('isAuthenticated: ' + isAuthenticated);
 
     return isAuthenticated;
   }

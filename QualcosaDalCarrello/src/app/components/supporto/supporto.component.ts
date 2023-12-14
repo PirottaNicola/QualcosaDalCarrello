@@ -7,7 +7,5 @@ import { Component } from '@angular/core';
 })
 export class SupportoComponent {
   model: any = {};
-  onSubmit() {
-    console.log(this.model);
-  }
+  onSubmit() {}
 }

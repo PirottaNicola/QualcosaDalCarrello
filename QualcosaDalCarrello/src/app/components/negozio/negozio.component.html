@@ -5,6 +5,9 @@
             <p class="fs-1">Negozio</p>
             <i class="bi bi-basket2-fill fs-3 p-2 d-flex align-items-center justify-content-center"></i>
         </div>
+        <ul *ngFor="let product of prodotti$ | async">
+            <li>{{product.nome}}</li>
+        </ul>
         <router-outlet></router-outlet> <!--? This is where the nested routes will be rendered -->
     </div>
 </div>
