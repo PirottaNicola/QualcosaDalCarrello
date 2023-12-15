@@ -5,13 +5,12 @@ import { InMemoryDbService } from 'angular-in-memory-web-api';
   providedIn: 'root',
 })
 export class DataService implements InMemoryDbService {
-  constructor() {
-    console.log('Data service created');
-  }
-
+  constructor() {}
 
   private randomDate(start: Date, end: Date): Date {
-    return new Date(start.getTime() + Math.random() * (end.getTime() - start.getTime()));
+    return new Date(
+      start.getTime() + Math.random() * (end.getTime() - start.getTime())
+    );
   }
 
   private formatDateTime(date: Date): string {
@@ -42,7 +41,7 @@ export class DataService implements InMemoryDbService {
 
     return result;
   }
-  
+
   createDb() {
     console.log('Database created');
 
@@ -52,8 +51,10 @@ export class DataService implements InMemoryDbService {
     const startDate2 = new Date('2023-11-01');
     const endDate2 = new Date('2023-12-01');
 
-    const randomDateTimeInRange1 = () => this.formatDateTime(this.randomDate(startDate1, endDate1));
-    const randomDateTimeInRange2 = () => this.formatDateTime(this.randomDate(startDate2, endDate2));
+    const randomDateTimeInRange1 = () =>
+      this.formatDateTime(this.randomDate(startDate1, endDate1));
+    const randomDateTimeInRange2 = () =>
+      this.formatDateTime(this.randomDate(startDate2, endDate2));
 
     return {
       products: [
@@ -127,7 +128,8 @@ export class DataService implements InMemoryDbService {
           metodiPagamento: ['MasterPovero : Sei Povero'],
           storicoOrdini: [],
           carrelloCorrente: {
-            id: 1, prodotti: [
+            id: 1,
+            prodotti: [
               {
                 id: 6,
                 urlImmagine: 'ipad.png',
@@ -137,9 +139,11 @@ export class DataService implements InMemoryDbService {
                 varianti: [128, 256],
                 quantitàProdottiVenduti: 355,
                 numeroReclami: 33,
-              }
-            ], utente: {}, prezzoTotale: 0
-          }
+              },
+            ],
+            utente: {},
+            prezzoTotale: 0,
+          },
         },
       ],
       reclami: [

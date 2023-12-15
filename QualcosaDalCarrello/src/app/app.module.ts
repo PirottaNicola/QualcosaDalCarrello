@@ -16,6 +16,8 @@ import { ProdottoComponent } from './components/prodotto/prodotto.component';
 import { DataService } from './data.services';
 //import { FetchData } from './retrieve.services';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { EffectsModule } from '@ngrx/effects';
+import { StoreModule } from '@ngrx/store';
 import { AuthGuardService } from './auth-guard.service';
 import { AdminPanelComponent } from './components/admin-panel/admin-panel.component';
 import { CaroselloComponent } from './components/carosello/carosello.component';
@@ -26,7 +28,8 @@ import { ProdottoRigaComponent } from './components/prodotto-riga/prodotto-riga.
 import { ReactiveFormComponent } from './components/reactive-form/reactive-form.component';
 import { SupportoComponent } from './components/supporto/supporto.component';
 import { UtenteComponent } from './components/utente/utente.component';
-import { StoreModule } from '@ngrx/store';
+import { AppEffects } from './state/app.effects';
+import { prodottoReducer } from './state/app.reducer';
 
 @NgModule({
   declarations: [
@@ -56,15 +59,14 @@ import { StoreModule } from '@ngrx/store';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    StoreModule.forRoot({}, {}),
+    StoreModule.forRoot({ prodotto: prodottoReducer }),
+    EffectsModule.forRoot([AppEffects]),
   ], // this imports are avaialble in all the application (in all the modules) and they are imported only once
   providers: [DataService, AuthGuardService], // this is the place where you put your services
   bootstrap: [AppComponent],
 })
 export class AppModule {
   constructor() {
-    console.log('App module created');
-
     // initialize the database
     const data = new DataService();
     data.createDb();

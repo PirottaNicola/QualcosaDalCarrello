@@ -17,7 +17,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Prodotto } from './models/prodotto.module';
-import { Reclamo} from './models/reclamo.module';
+import { Reclamo } from './models/reclamo.module';
 
 @Injectable({
   providedIn: 'root',
@@ -115,7 +115,6 @@ export class cartService {
     return this.http.delete(this.cartUrl + id);
   }
 }
-
 
 @Injectable({
   providedIn: 'root',
