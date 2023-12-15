@@ -26,6 +26,7 @@ import { ProdottoRigaComponent } from './components/prodotto-riga/prodotto-riga.
 import { ReactiveFormComponent } from './components/reactive-form/reactive-form.component';
 import { SupportoComponent } from './components/supporto/supporto.component';
 import { UtenteComponent } from './components/utente/utente.component';
+import { StoreModule } from '@ngrx/store';
 
 @NgModule({
   declarations: [
@@ -55,6 +56,7 @@ import { UtenteComponent } from './components/utente/utente.component';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
+    StoreModule.forRoot({}, {}),
   ], // this imports are avaialble in all the application (in all the modules) and they are imported only once
   providers: [DataService, AuthGuardService], // this is the place where you put your services
   bootstrap: [AppComponent],
